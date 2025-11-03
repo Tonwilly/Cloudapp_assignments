@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            border-bottom: 1px solid salmon;
+            margin-bottom: 20px;
+        }
+        .task-container{
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid darkgray;
+            border-radius: 10px;
+            font-size: 18px;
+            padding-bottom: 5px;
+        }
+        .hero-section{
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        header button{
+            border: 1px solid sienna;
+            cursor: pointer;
+            border-radius: 50px;
+            padding: 10px 18px;
+        }
+        header button:hover{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        header button:active{
+            transform: scale(1.2);
+            cursor: pointer;
+            background: rgba(79, 124, 124, 0.747);
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <section>
+        <header>
+            <h1>To-Do-List App</h1>
+            <button class="add-task-btn">+ Add Task</button>
+        </header>
+    </section>
+    <section class="hero-section">
+        <div class="tasks">
+        
+    </div>
+    </section>
+
+
+    <script>
+        let tasks = [];
+
+        let taskNumber = 0;
+        let mainSection = document.querySelector(".tasks");
+        let addTaskBtn = document.querySelector(".add-task-btn");
+
+        addTaskBtn.addEventListener("click", () => {
+            
+             let task = `
+                <section class="task-container">
+            <div class="task-number">${taskNumber + 1}</div>
+            <div class="task-name">Type</div>
+            <div class="task-date">${Date()}</div>
+            <div class="task-checker"><input type="checkbox" name="task" id="task-name"></div>
+        </section>
+            `;
+
+            tasks.push(task);
+;
+            function alerter() {
+                alert("done");
+            }
+            // invokes handler i.e function alerter 3 seconds after web page loading
+           // setTimeout(alerter, 3000);
+            // invokes handler after every 3 seconnds forever
+            //setInterval(alerter, 3000);
+            mainSection.innerHTML += task;
+        });
+
+         
+        
+    </script>
+</body>
+</html>
